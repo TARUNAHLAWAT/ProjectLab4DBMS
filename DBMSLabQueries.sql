@@ -164,3 +164,13 @@ select cus_name, cus_gender from customer where customer.cus_name like 'A%' or c
 
 
 call categorise_supplier;
+-- StoredProcedure
+-- CREATE DEFINER=`root`@`localhost` PROCEDURE `categorise_supplier`()
+-- BEGIN
+-- select supplier.supp_id,supplier.supp_name,rating.rat_ratstars,
+-- CASE
+   -- WHEN rating.rat_ratstars >4 THEN 'Genuine Supplier'
+   -- WHEN rating.rat_ratstars>2 THEN 'Average Supplier'
+   -- ELSE 'Supplier should not be considered'
+-- END AS verdict from rating inner join supplier on supplier.supp_id=rating.supp_id;
+-- END
